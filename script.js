@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (typeof UnicornStudio === "undefined") {
             throw new Error("❌ UnicornStudio library is not loaded. Check the script import in index.html");
         }
+        
 
         // Initialize Unicorn Studio with JSON data
         UnicornStudio.init({
@@ -38,6 +39,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             setTimeout(() => {
                 console.log("📡 Checking if Unicorn Studio injected elements...");
                 console.log(unicornContainer.innerHTML);
+            }, 5000);
+            setTimeout(() => {
+                console.log("🔄 Forcing Unicorn Studio to render...");
+                UnicornStudio.init().then(() => {
+                    console.log("🎥 Unicorn Studio has been manually reinitialized!");
+                }).catch(err => {
+                    console.error("❌ Unicorn Studio reinitialization failed:", err);
+                });
             }, 5000);
 
         }).catch(err => {
