@@ -33,6 +33,13 @@ document.addEventListener("DOMContentLoaded", async function () {
             lazyload: false,
         }).then(() => {
             console.log("🎉 Unicorn Studio project loaded successfully!");
+            
+            // Check after 5 seconds if anything is injected
+            setTimeout(() => {
+                console.log("📡 Checking if Unicorn Studio injected elements...");
+                console.log(unicornContainer.innerHTML);
+            }, 5000);
+
         }).catch(err => {
             console.error("⚠️ Error initializing Unicorn Studio:", err);
         });
