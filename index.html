@@ -3,37 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unicorn Studio Project</title>
+    <title>Unicorn Studio Animation</title>
     <script src="https://cdn.unicorn.studio/v1.3.2/unicornStudio.umd.js"></script>
-    <style>
-        body { margin: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: black; }
-        .unicorn-container { width: 100vw; height: 100vh; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="unicorn-container" id="unicornCanvas"></div>
-
-    <script>
-        async function loadUnicornProject() {
-            try {
-                // Load the JSON file dynamically
-                const response = await fetch("unicorn_project.json"); // Ensure this JSON file is accessible
-                const projectData = await response.json();
-
-                // Initialize Unicorn Studio with the JSON data
-                UnicornStudio.init({
-                    project: projectData,
-                    container: document.getElementById("unicornCanvas"),
-                    scale: 1,
-                    dpi: 1.5,
-                    lazyload: false
-                });
-            } catch (error) {
-                console.error("Error loading Unicorn Studio project:", error);
-            }
-        }
-
-        loadUnicornProject();
-    </script>
+    <div id="unicorn-container" style="width: 100%; height: 100%;"></div>
 </body>
 </html>
