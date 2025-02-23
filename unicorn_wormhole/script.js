@@ -38,11 +38,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.log("🎉 Unicorn Studio loaded successfully!");
 
             // Check if anything is being rendered
-            setTimeout(() => {
-                const pixelData = new Uint8Array(4);
-                gl.readPixels(10, 10, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixelData);
-                console.log("🎨 Pixel Color at (10,10):", pixelData);
-            }, 3000); // Wait 3 seconds before checking pixel data
+            const pixels = new Uint8Array(4);
+            gl.readPixels(10, 10, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+            console.log("🎨 Pixel Color at (10,10):", pixels);
 
         }).catch(err => {
             console.error("⚠️ Error initializing Unicorn Studio:", err);
